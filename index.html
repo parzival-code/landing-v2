@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funko Community: Твоє місце для колекціонування (Dark Edition)</title>
+    <!-- Підключення Tailwind CSS для сучасного та адаптивного дизайну --><script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ================================================= */
+        /* === DARK MODE / CYBER COLLECTOR THEME COLORS === */
+        /* ================================================= */
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'funko-dark-bg': '#121212',           /* Основний глибокий темний фон */
+                        'funko-card-bg': '#1E1E1E',           /* Фон для карток */
+                        'funko-primary-accent': '#00A3C9',    /* Яскравий блакитний акцент (неон) */
+                        'funko-secondary-accent': '#F5C755',  /* Золотий акцент (світіння) */
+                        'funko-text-light': '#E0E0E0',        /* Світлий текст */
+                        'funko-text-mid': '#A0A0A0',          /* Сірий текст */
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'neon-blue': '0 0 10px rgba(0, 163, 201, 0.6), 0 0 20px rgba(0, 163, 201, 0.4)',
+                        'neon-gold': '0 0 8px rgba(245, 199, 85, 0.8), 0 0 15px rgba(245, 199, 85, 0.5)',
+                        'card-glow': '0 0 5px rgba(0, 163, 201, 0.2), 0 5px 15px rgba(0, 0, 0, 0.5)',
+                    }
+                }
+            }
+        }
+
+        /* Стилі для неонової кнопки */
+        .neon-button {
+            transition: all 0.3s ease-in-out;
+            border: 2px solid transparent;
+        }
+
+        .neon-button:hover {
+            box-shadow: var(--tw-shadow-neon-blue);
+            transform: scale(1.05);
+            border: 2px solid var(--funko-primary-accent);
+        }
+
+        /* Стилі для карток з неоновою рамкою */
+        .card-glow {
+            transition: all 0.3s ease-in-out;
+            border: 1px solid var(--funko-card-bg);
+        }
+
+        .card-glow:hover {
+            transform: translateY(-8px);
+            border-color: var(--funko-primary-accent);
+            box-shadow: var(--tw-shadow-neon-blue);
+        }
+
+        /* Hero Section - Більш драматичний фон */
+        .hero-background {
+            background: linear-gradient(135deg, #121212 0%, #1a1a2e 100%);
+        }
+    </style>
+</head>
+<body class="font-sans text-funko-text-light bg-funko-dark-bg">
+
+    <!-- 1. Хедер (Header) --><header class="sticky top-0 z-50 bg-funko-dark-bg shadow-2xl border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            <!-- Логотип --><a href="t.me/funkocommunity" target="_blank" class="flex items-center">
+                <!-- Використання наданого логотипу -->
+                <img src="uploaded:image_a36886.jpg-a0e99f80-8fd5-4093-a453-22a4f0fd8af3" alt="Логотип Funko Community" class="h-12 sm:h-14 filter drop-shadow-lg shadow-neon-blue">
+            </a>
+            
+            <!-- Навігація та CTA --><nav class="hidden md:flex items-center space-x-6">
+                <a href="#branches" class="text-funko-text-light hover:text-funko-primary-accent font-semibold transition duration-300">Гілки</a>
+                <a href="#about" class="text-funko-text-light hover:text-funko-primary-accent font-semibold transition duration-300">Про Спільноту</a>
+                <!-- Неонова кнопка CTA -->
+                <a href="t.me/funkocommunity" target="_blank" class="px-5 py-2 rounded-full bg-funko-primary-accent text-funko-dark-bg font-bold neon-button shadow-neon-blue">
+                    Приєднатися
+                </a>
+            </nav>
+
+            <!-- Кнопка для мобільного меню (прихована) --><button class="md:hidden p-2 rounded-md text-funko-text-light hover:bg-gray-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- 2. Головний Баннер (Hero Section) --><section class="hero-background pt-24 pb-28 text-center text-funko-text-light relative z-10 border-b border-funko-primary-accent/50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h1 class="text-6xl font-extrabold mb-4 leading-tight md:text-7xl drop-shadow-lg">
+                <span class="text-funko-primary-accent">Funko</span> Community: Твоє місце для колекціонування
+            </h1>
+            <p class="text-xl mb-10 max-w-3xl mx-auto text-funko-text-mid">
+                Приєднуйся до найбільшої україномовної спільноти колекціонерів фігурок. Обговорюй, купуй, обмінюй та будь в курсі всіх новин!
+            </p>
+            <!-- Велика неонова кнопка CTA -->
+            <a href="t.me/funkocommunity" target="_blank" class="px-10 py-4 rounded-full bg-funko-secondary-accent text-funko-dark-bg text-xl font-bold neon-button shadow-neon-gold">
+                Розпочати Колекціонування
+            </a>
+        </div>
+    </section>
+
+    <!-- 3. Секція: Наші Гілки (Branches) - Ключові плитки --><section id="branches" class="py-16 sm:py-24 bg-funko-dark-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-extrabold text-center mb-16 text-funko-text-light">
+                <span class="text-funko-secondary-accent">Ключові</span> Гілки Спільноти
+            </h2>
+
+            <!-- Сітка плиток --><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                
+                <!-- Плитка 1: Основна гілка --><div class="branch-card card-glow bg-funko-card-bg p-6 rounded-xl border-t-4 border-funko-primary-accent flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="text-4xl text-funko-primary-accent drop-shadow-md">💬</div>
+                        <h3 class="text-xl font-bold text-funko-primary-accent">Основна Гілка</h3>
+                        <p class="text-funko-text-mid">Тут відбуваються всі обговорення на будь-які теми. Задавай питання, ділися радістю та спілкуйся.</p>
+                    </div>
+                    <a href="t.me/funkocommunity" target="_blank" class="mt-4 text-funko-secondary-accent font-semibold hover:text-white transition duration-300">Перейти до обговорень →</a>
+                </div>
+
+                <!-- Плитка 2: Новини --><div class="branch-card card-glow bg-funko-card-bg p-6 rounded-xl border-t-4 border-funko-primary-accent flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="text-4xl text-funko-primary-accent drop-shadow-md">📰</div>
+                        <h3 class="text-xl font-bold text-funko-primary-accent">Новини та Витоки</h3>
+                        <p class="text-funko-text-mid">Завжди актуальні новини та витоки про майбутні фігурки. Будь першим!</p>
+                    </div>
+                    <a href="t.me/funkocommunity" target="_blank" class="mt-4 text-funko-secondary-accent font-semibold hover:text-white transition duration-300">Читати Новини →</a>
+                </div>
+                
+                <!-- Плитка 3: Маркетплейс --><div class="branch-card card-glow bg-funko-card-bg p-6 rounded-xl border-t-4 border-funko-primary-accent flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="text-4xl text-funko-primary-accent drop-shadow-md">🛒</div>
+                        <h3 class="text-xl font-bold text-funko-primary-accent">Маркетплейс</h3>
+                        <p class="text-funko-text-mid">Продавай свої фігурки та шукай підходящі варіанти для поповнення колекції.</p>
+                    </div>
+                    <a href="t.me/funkocommunity" target="_blank" class="mt-4 text-funko-secondary-accent font-semibold hover:text-white transition duration-300">Купити/Продати →</a>
+                </div>
+                
+                <!-- Плитка 4: Пошук та Обмін --><div class="branch-card card-glow bg-funko-card-bg p-6 rounded-xl border-t-4 border-funko-primary-accent flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="text-4xl text-funko-primary-accent drop-shadow-md">🔄</div>
+                        <h3 class="text-xl font-bold text-funko-primary-accent">Пошук та Обмін</h3>
+                        <p class="text-funko-text-mid">Розмісти запит на пошук або оголошення про обмін з іншими учасниками.</p>
+                    </div>
+                    <a href="t.me/funkocommunity" target="_blank" class="mt-4 text-funko-secondary-accent font-semibold hover:text-white transition duration-300">Знайти/Обміняти →</a>
+                </div>
+                
+                <!-- Плитка 5: Перевірені магазини --><div class="branch-card card-glow bg-funko-card-bg p-6 rounded-xl border-t-4 border-funko-primary-accent flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="text-4xl text-funko-primary-accent drop-shadow-md">🛡️</div>
+                        <h3 class="text-xl font-bold text-funko-primary-accent">Перевірені Магазини</h3>
+                        <p class="text-funko-text-mid">Список продавців, які нададуть тобі якісний сервіс та допоможуть поповнити колекцію.</p>
+                    </div>
+                    <a href="t.me/funkocommunity" target="_blank" class="mt-4 text-funko-secondary-accent font-semibold hover:text-white transition duration-300">Дивитись Список →</a>
+                </div>
+                
+                <!-- Плитка 6: Аукціони --><div class="branch-card card-glow bg-funko-card-bg p-6 rounded-xl border-t-4 border-funko-primary-accent flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="text-4xl text-funko-primary-accent drop-shadow-md">🏆</div>
+                        <h3 class="text-xl font-bold text-funko-primary-accent">Аукціони</h3>
+                        <p class="text-funko-text-mid">Бери участь в аукціонах або виставляй свої рідкісні фігурки на продаж.</p>
+                    </div>
+                    <a href="t.me/funkocommunity" target="_blank" class="mt-4 text-funko-secondary-accent font-semibold hover:text-white transition duration-300">Взяти Участь →</a>
+                </div>
+
+                <!-- Плитка 7: Головна Група Telegram (Замість Гайду) --><div class="branch-card card-glow bg-funko-card-bg p-6 rounded-xl border-t-4 border-funko-secondary-accent flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="text-4xl text-funko-secondary-accent drop-shadow-md">🚀</div>
+                        <h3 class="text-xl font-bold text-funko-secondary-accent">Головна Група Telegram</h3>
+                        <p class="text-funko-text-mid">Миттєве спілкування та обговорення всіх аспектів колекціонування в нашому основному чаті.</p>
+                    </div>
+                    <a href="t.me/funkocommunity" target="_blank" class="mt-4 text-funko-secondary-accent font-semibold hover:text-white transition duration-300">Перейти до Чату →</a>
+                </div>
+
+                <!-- Плитка 8: Спільні замовлення --><div class="branch-card card-glow bg-funko-card-bg p-6 rounded-xl border-t-4 border-funko-primary-accent flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="text-4xl text-funko-primary-accent drop-shadow-md">🤝</div>
+                        <h3 class="text-xl font-bold text-funko-primary-accent">Спільні Замовлення</h3>
+                        <p class="text-funko-text-mid">Приєднуйся до спільних замовлень на офіційних розпродажах Funko разом з нами.</p>
+                    </div>
+                    <a href="t.me/funkocommunity" target="_blank" class="mt-4 text-funko-secondary-accent font-semibold hover:text-white transition duration-300">Долучитись →</a>
+                </div>
+
+            </div>
+
+            <!-- Додаткова інформація --><div class="mt-12 text-center text-lg text-funko-text-light p-6 bg-funko-card-bg rounded-xl border-l-4 border-funko-secondary-accent shadow-lg">
+                <p class="font-semibold italic">...Та ще багато цікавих тематичних гілок для обговорення – ти обов'язково знайдеш щось для себе!</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. Секція: Заклик до дії (Call to Action) --><section class="bg-funko-card-bg py-16 text-center border-t border-gray-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-3xl font-bold text-funko-text-light mb-6">
+                Не зволікай! Приєднайся до спільноти, де розуміють твоє захоплення.
+            </h3>
+            <a href="t.me/funkocommunity" target="_blank" class="px-8 py-3 rounded-full bg-funko-primary-accent text-funko-dark-bg text-lg font-bold neon-button shadow-neon-blue">
+                Приєднатися Зараз
+            </a>
+        </div>
+    </section>
+
+    <!-- 5. Футер (Footer) --><footer class="bg-funko-dark-bg text-funko-text-mid py-8 border-t border-funko-primary-accent/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="space-x-6 text-2xl mb-4">
+                <!-- Посилання на Telegram --><a href="t.me/funkocommunity" target="_blank" class="hover:text-funko-primary-accent transition duration-300">🔗 Telegram</a>
+            </div>
+            <p class="text-sm text-gray-600">© 2025 Funko Community. Усі права захищено. Спільнота колекціонерів Funko.</p>
+        </div>
+    </footer>
+
+    <!-- Gemini API Integration Script --><script>
+        // Змінні для Canvas (залишені для сумісності, але вся логіка Gemini видалена)
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+        // Логіка для генерації гайдів була видалена, оскільки функціонал замінено на пряме посилання.
+    </script>
+</body>
+</html>
