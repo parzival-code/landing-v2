@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funko Community: Твоє місце для колекціонування (Dark Edition)</title>
-    <!-- Підключення Tailwind CSS для сучасного та адаптивного дизайну --><script src="https://cdn.tailwindcss.com"></script>
+    <title>Funko Community: Твоє місце для колекціонування (Enhanced Dark Edition)</title>
+    
+<script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- НОВЕ: Фавікон (іконка вкладки браузера). Завантажте файл favicon.ico -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
         /* ================================================= */
         /* === DARK MODE / CYBER COLLECTOR THEME COLORS === */
@@ -14,20 +17,20 @@
             theme: {
                 extend: {
                     colors: {
-                        'funko-dark-bg': '#121212',           /* Основний глибокий темний фон */
-                        'funko-card-bg': '#1E1E1E',           /* Фон для карток */
+                        'funko-dark-bg': '#0D0D15',           /* Глибший темний фон */
+                        'funko-card-bg': '#1E1E30',           /* Фон для карток, трохи темніший синьо-сірий (ПОКРАЩЕНО КОНТРАСТ) */
                         'funko-primary-accent': '#00A3C9',    /* Яскравий блакитний акцент (неон) */
                         'funko-secondary-accent': '#F5C755',  /* Золотий акцент (світіння) */
-                        'funko-text-light': '#E0E0E0',        /* Світлий текст */
-                        'funko-text-mid': '#A0A0A0',          /* Сірий текст */
+                        'funko-text-light': '#F0F0F0',        /* Більш світлий текст для кращого контрасту (заголовки) */
+                        'funko-text-mid': '#C0C0C0',          /* Сірий текст, світліший для кращої читабельності (ОСНОВНИЙ ТЕКСТ) */
                     },
                     fontFamily: {
                         sans: ['Poppins', 'sans-serif'],
                     },
                     boxShadow: {
-                        'neon-blue': '0 0 10px rgba(0, 163, 201, 0.6), 0 0 20px rgba(0, 163, 201, 0.4)',
-                        'neon-gold': '0 0 8px rgba(245, 199, 85, 0.8), 0 0 15px rgba(245, 199, 85, 0.5)',
-                        'card-glow': '0 0 5px rgba(0, 163, 201, 0.2), 0 5px 15px rgba(0, 0, 0, 0.5)',
+                        'neon-blue': '0 0 10px rgba(0, 163, 201, 0.7), 0 0 25px rgba(0, 163, 201, 0.5)',
+                        'neon-gold': '0 0 8px rgba(245, 199, 85, 0.9), 0 0 18px rgba(245, 199, 85, 0.6)',
+                        'card-glow': '0 0 8px rgba(0, 163, 201, 0.3), 0 8px 20px rgba(0, 0, 0, 0.6)',
                     }
                 }
             }
@@ -45,38 +48,75 @@
             border: 2px solid var(--funko-primary-accent);
         }
 
-        /* Стилі для карток з неоновою рамкою */
+        /* Стилі для карток з неоновою рамкою (ОНОВЛЕНО) */
         .card-glow {
             transition: all 0.3s ease-in-out;
-            border: 1px solid var(--funko-card-bg);
+            /* Зробимо базову рамку трохи помітнішою (світло-сірий, майже прозорий) */
+            border: 1px solid rgba(192, 192, 192, 0.15); 
+            /* Додамо дуже тонкий тіньовий ефект, щоб картка "відірвалася" від фону */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); 
         }
 
         .card-glow:hover {
             transform: translateY(-8px);
             border-color: var(--funko-primary-accent);
+            /* Використовуємо яскравий неоновий ефект, як і раніше */
             box-shadow: var(--tw-shadow-neon-blue);
         }
 
         /* Hero Section - Більш драматичний фон */
         .hero-background {
-            background: linear-gradient(135deg, #121212 0%, #1a1a2e 100%);
+            background: linear-gradient(135deg, #0D0D15 0%, #1a1a2e 100%);
+            position: relative;
+            overflow: hidden; 
         }
+
+        /* --- Floating Elements Animation (Applied to <img> tags) --- */
+        @keyframes floatEffect {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.1; }
+            50% { transform: translateY(-20px) rotate(5deg); opacity: 0.15; }
+            100% { transform: translateY(0) rotate(0deg); opacity: 0.1; }
+        }
+
+        .floating-element {
+            position: absolute;
+            object-fit: contain; /* Зображення не обрізається */
+            opacity: 0.1; /* Дуже напівпрозорі */
+            animation: floatEffect 10s ease-in-out infinite alternate;
+            z-index: 0; /* Щоб були під текстом */
+        }
+
+        /* Застосування анімацій до конкретних елементів */
+        .floating-element:nth-child(1) { animation-delay: 0s; animation-duration: 12s; }
+        .floating-element:nth-child(2) { animation-delay: 2s; animation-duration: 10s; }
+        .floating-element:nth-child(3) { animation-delay: 4s; animation-duration: 15s; }
+        .floating-element:nth-child(4) { animation-delay: 6s; animation-duration: 11s; }
+        .floating-element:nth-child(5) { animation-delay: 8s; animation-duration: 13s; }
+        .floating-element:nth-child(6) { animation-delay: 1s; animation-duration: 14s; }
+        .floating-element:nth-child(7) { animation-delay: 3s; animation-duration: 9s; }
+        .floating-element:nth-child(8) { animation-delay: 5s; animation-duration: 10s; }
+        .floating-element:nth-child(9) { animation-delay: 7s; animation-duration: 16s; }
+        .floating-element:nth-child(10) { animation-delay: 9s; animation-duration: 12s; }
+
     </style>
 </head>
 <body class="font-sans text-funko-text-light bg-funko-dark-bg">
 
     <!-- 1. Хедер (Header) --><header class="sticky top-0 z-50 bg-funko-dark-bg shadow-2xl border-b border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
-            <!-- Логотип --><a href="t.me/funkocommunity" target="_blank" class="flex items-center">
-                <!-- Використання логотипу-плейсхолдера для GitHub Pages -->
-                <img src="https://placehold.co/100x56/00A3C9/121212?text=FUNKO+COM" alt="Логотип Funko Community" class="h-12 sm:h-14 filter drop-shadow-lg shadow-neon-blue rounded-lg">
+            <!-- Логотип: Використовуємо logo.png --><a href="https://t.me/funkocommunity" target="_blank" class="flex items-center">
+                <!-- Обов'язково додайте файл logo.png у ваш репозиторій -->
+                <img src="logo.png" 
+                     alt="Логотип Funko Community" 
+                     class="h-12 sm:h-14 filter drop-shadow-lg shadow-neon-blue rounded-lg"
+                     onerror="this.src='https://placehold.co/100x56/00A3C9/121212?text=FUNKO+COM+FALLBACK'">
             </a>
             
             <!-- Навігація та CTA --><nav class="hidden md:flex items-center space-x-6">
                 <a href="#branches" class="text-funko-text-light hover:text-funko-primary-accent font-semibold transition duration-300">Гілки</a>
                 <a href="#about" class="text-funko-text-light hover:text-funko-primary-accent font-semibold transition duration-300">Про Спільноту</a>
                 <!-- Неонова кнопка CTA -->
-                <a href="t.me/funkocommunity" target="_blank" class="px-5 py-2 rounded-full bg-funko-primary-accent text-funko-dark-bg font-bold neon-button shadow-neon-blue">
+                <a href="https://t.me/funkocommunity" target="_blank" class="px-5 py-2 rounded-full bg-funko-primary-accent text-funko-dark-bg font-bold neon-button shadow-neon-blue">
                     Приєднатися
                 </a>
             </nav>
@@ -88,15 +128,28 @@
     </header>
 
     <!-- 2. Головний Баннер (Hero Section) --><section class="hero-background pt-24 pb-28 text-center text-funko-text-light relative z-10 border-b border-funko-primary-accent/50">
+        
+        <!-- Плаваючі елементи (використовують element1.png, element2.png, element3.png) -->
+        <img src="element1.png" alt="Funko Pop Box Placeholder 1" class="floating-element w-20 h-20 sm:w-24 sm:h-24" style="left: 5%; top: 10%;">
+        <img src="element2.png" alt="Chase Sticker Placeholder 1" class="floating-element w-16 h-16 sm:w-20 sm:h-20" style="left: 80%; top: 60%; animation-delay: 2s;">
+        <img src="element1.png" alt="Funko Pop Box Placeholder 2" class="floating-element w-32 h-32 sm:w-40 sm:h-40" style="left: 40%; top: 30%; animation-delay: 4s;">
+        <img src="element3.png" alt="Glow Effect Placeholder 1" class="floating-element w-24 h-24 sm:w-32 sm:h-32" style="left: 20%; top: 80%; animation-delay: 6s;">
+        <img src="element2.png" alt="Chase Sticker Placeholder 2" class="floating-element w-20 h-20 sm:w-24 sm:h-24" style="left: 70%; top: 20%; animation-delay: 8s;">
+        <img src="element3.png" alt="Glow Effect Placeholder 2" class="floating-element w-16 h-16 sm:w-20 sm:h-20" style="left: 15%; top: 50%; animation-delay: 1s;">
+        <img src="element1.png" alt="Funko Pop Box Placeholder 3" class="floating-element w-24 h-24 sm:w-32 sm:h-32" style="left: 50%; top: 70%; animation-delay: 3s;">
+        <img src="element3.png" alt="Glow Effect Placeholder 3" class="floating-element w-32 h-32 sm:w-40 sm:h-40" style="left: 90%; top: 5%; animation-delay: 5s;">
+        <img src="element2.png" alt="Chase Sticker Placeholder 3" class="floating-element w-20 h-20 sm:w-24 sm:h-24" style="left: 5%; top: 40%; animation-delay: 7s;">
+        <img src="element1.png" alt="Funko Pop Box Placeholder 4" class="floating-element w-24 h-24 sm:w-32 sm:h-32" style="left: 90%; top: 90%; animation-delay: 9s;">
+
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <h1 class="text-6xl font-extrabold mb-4 leading-tight md:text-7xl drop-shadow-lg">
+            <h1 class="text-6xl font-extrabold mb-4 leading-tight md:text-7xl drop-shadow-lg text-funko-text-light">
                 <span class="text-funko-primary-accent">Funko</span> Community: Твоє місце для колекціонування
             </h1>
-            <p class="text-xl mb-10 max-w-3xl mx-auto text-funko-text-mid">
+            <p class="text-xl mb-10 max-w-3xl mx-auto text-funko-text-mid drop-shadow-md">
                 Приєднуйся до найбільшої україномовної спільноти колекціонерів фігурок. Обговорюй, купуй, обмінюй та будь в курсі всіх новин!
             </p>
             <!-- Велика неонова кнопка CTA -->
-            <a href="t.me/funkocommunity" target="_blank" class="px-10 py-4 rounded-full bg-funko-secondary-accent text-funko-dark-bg text-xl font-bold neon-button shadow-neon-gold">
+            <a href="https://t.me/funkocommunity" target="_blank" class="px-10 py-4 rounded-full bg-funko-secondary-accent text-funko-dark-bg text-xl font-bold neon-button shadow-neon-gold">
                 Розпочати Колекціонування
             </a>
         </div>
@@ -116,7 +169,7 @@
                         <h3 class="text-xl font-bold text-funko-primary-accent">Основна Гілка</h3>
                         <p class="text-funko-text-mid">Тут відбуваються всі обговорення на будь-які теми. Задавай питання, ділися радістю та спілкуйся.</p>
                     </div>
-                    <a href="t.me/funkocommunity" target="_blank" class="mt-4 text-funko-secondary-accent font-semibold hover:text-white transition duration-300">Перейти до обговорень →</a>
+                    <a href="https://t.me/funkocommunity" target="_blank" class="mt-4 text-funko-secondary-accent font-semibold hover:text-white transition duration-300">Перейти до обговорень →</a>
                 </div>
 
                 <!-- Плитка 2: Новини --><div class="branch-card card-glow bg-funko-card-bg p-6 rounded-xl border-t-4 border-funko-primary-accent flex flex-col justify-between">
@@ -125,7 +178,7 @@
                         <h3 class="text-xl font-bold text-funko-primary-accent">Новини та Витоки</h3>
                         <p class="text-funko-text-mid">Завжди актуальні новини та витоки про майбутні фігурки. Будь першим!</p>
                     </div>
-                    <a href="t.me/funkocommunity" target="_blank" class="mt-4 text-funko-secondary-accent font-semibold hover:text-white transition duration-300">Читати Новини →</a>
+                    <a href="https://t.me/funkocommunity" target="_blank" class="mt-4 text-funko-secondary-accent font-semibold hover:text-white transition duration-300">Читати Новини →</a>
                 </div>
                 
                 <!-- Плитка 3: Маркетплейс --><div class="branch-card card-glow bg-funko-card-bg p-6 rounded-xl border-t-4 border-funko-primary-accent flex flex-col justify-between">
@@ -134,7 +187,7 @@
                         <h3 class="text-xl font-bold text-funko-primary-accent">Маркетплейс</h3>
                         <p class="text-funko-text-mid">Продавай свої фігурки та шукай підходящі варіанти для поповнення колекції.</p>
                     </div>
-                    <a href="t.me/funkocommunity" target="_blank" class="mt-4 text-funko-secondary-accent font-semibold hover:text-white transition duration-300">Купити/Продати →</a>
+                    <a href="https://t.me/funkocommunity" target="_blank" class="mt-4 text-funko-secondary-accent font-semibold hover:text-white transition duration-300">Купити/Продати →</a>
                 </div>
                 
                 <!-- Плитка 4: Пошук та Обмін --><div class="branch-card card-glow bg-funko-card-bg p-6 rounded-xl border-t-4 border-funko-primary-accent flex flex-col justify-between">
@@ -143,7 +196,7 @@
                         <h3 class="text-xl font-bold text-funko-primary-accent">Пошук та Обмін</h3>
                         <p class="text-funko-text-mid">Розмісти запит на пошук або оголошення про обмін з іншими учасниками.</p>
                     </div>
-                    <a href="t.me/funkocommunity" target="_blank" class="mt-4 text-funko-secondary-accent font-semibold hover:text-white transition duration-300">Знайти/Обміняти →</a>
+                    <a href="https://t.me/funkocommunity" target="_blank" class="mt-4 text-funko-secondary-accent font-semibold hover:text-white transition duration-300">Знайти/Обміняти →</a>
                 </div>
                 
                 <!-- Плитка 5: Перевірені магазини --><div class="branch-card card-glow bg-funko-card-bg p-6 rounded-xl border-t-4 border-funko-primary-accent flex flex-col justify-between">
@@ -152,7 +205,7 @@
                         <h3 class="text-xl font-bold text-funko-primary-accent">Перевірені Магазини</h3>
                         <p class="text-funko-text-mid">Список продавців, які нададуть тобі якісний сервіс та допоможуть поповнити колекцію.</p>
                     </div>
-                    <a href="t.me/funkocommunity" target="_blank" class="mt-4 text-funko-secondary-accent font-semibold hover:text-white transition duration-300">Дивитись Список →</a>
+                    <a href="https://t.me/funkocommunity" target="_blank" class="mt-4 text-funko-secondary-accent font-semibold hover:text-white transition duration-300">Дивитись Список →</a>
                 </div>
                 
                 <!-- Плитка 6: Аукціони --><div class="branch-card card-glow bg-funko-card-bg p-6 rounded-xl border-t-4 border-funko-primary-accent flex flex-col justify-between">
@@ -161,7 +214,7 @@
                         <h3 class="text-xl font-bold text-funko-primary-accent">Аукціони</h3>
                         <p class="text-funko-text-mid">Бери участь в аукціонах або виставляй свої рідкісні фігурки на продаж.</p>
                     </div>
-                    <a href="t.me/funkocommunity" target="_blank" class="mt-4 text-funko-secondary-accent font-semibold hover:text-white transition duration-300">Взяти Участь →</a>
+                    <a href="https://t.me/funkocommunity" target="_blank" class="mt-4 text-funko-secondary-accent font-semibold hover:text-white transition duration-300">Взяти Участь →</a>
                 </div>
 
                 <!-- Плитка 7: Головна Група Telegram (Замість Гайду) --><div class="branch-card card-glow bg-funko-card-bg p-6 rounded-xl border-t-4 border-funko-secondary-accent flex flex-col justify-between">
@@ -170,7 +223,7 @@
                         <h3 class="text-xl font-bold text-funko-secondary-accent">Головна Група Telegram</h3>
                         <p class="text-funko-text-mid">Миттєве спілкування та обговорення всіх аспектів колекціонування в нашому основному чаті.</p>
                     </div>
-                    <a href="t.me/funkocommunity" target="_blank" class="mt-4 text-funko-secondary-accent font-semibold hover:text-white transition duration-300">Перейти до Чату →</a>
+                    <a href="https://t.me/funkocommunity" target="_blank" class="mt-4 text-funko-secondary-accent font-semibold hover:text-white transition duration-300">Перейти до Чату →</a>
                 </div>
 
                 <!-- Плитка 8: Спільні замовлення --><div class="branch-card card-glow bg-funko-card-bg p-6 rounded-xl border-t-4 border-funko-primary-accent flex flex-col justify-between">
@@ -179,7 +232,7 @@
                         <h3 class="text-xl font-bold text-funko-primary-accent">Спільні Замовлення</h3>
                         <p class="text-funko-text-mid">Приєднуйся до спільних замовлень на офіційних розпродажах Funko разом з нами.</p>
                     </div>
-                    <a href="t.me/funkocommunity" target="_blank" class="mt-4 text-funko-secondary-accent font-semibold hover:text-white transition duration-300">Долучитись →</a>
+                    <a href="https://t.me/funkocommunity" target="_blank" class="mt-4 text-funko-secondary-accent font-semibold hover:text-white transition duration-300">Долучитись →</a>
                 </div>
 
             </div>
@@ -197,7 +250,7 @@
                 <span class="text-funko-primary-accent">Про</span> Нашу Спільноту
             </h2>
             <div class="max-w-3xl mx-auto text-lg space-y-6 text-funko-text-mid">
-                <p>Наша Funko Community — це найбільше об'єднання україномовних колекціонерів, де панує дружня атмосфера та взаємодопомога. Ми об'єднані однією пристрастю: колекціонуванням фігурок Funko Pop! та інших лінійок.</p>
+                <p>Наша Funko Community — це найбільше об'єднання україномомовних колекціонерів, де панує дружня атмосфера та взаємодопомога. Ми об'єднані однією пристрастю: колекціонуванням фігурок Funko Pop! та інших лінійок.</p>
                 <p>Незалежно від того, чи ви новачок, який шукає першу фігурку, чи досвідчений колекціонер, що полює на рідкісні "chase" екземпляри, ви знайдете тут однодумців. Ми допомагаємо з ідентифікацією фейків, обміном, спільними замовленнями та завжди в курсі останніх новин зі світу Funko.</p>
                 <p class="font-bold text-funko-text-light">Приєднуйтесь до нас, щоб разом збільшувати наші колекції та знання!</p>
             </div>
@@ -209,7 +262,7 @@
             <h3 class="text-3xl font-bold text-funko-text-light mb-6">
                 Не зволікай! Приєднайся до спільноти, де розуміють твоє захоплення.
             </h3>
-            <a href="t.me/funkocommunity" target="_blank" class="px-8 py-3 rounded-full bg-funko-primary-accent text-funko-dark-bg text-lg font-bold neon-button shadow-neon-blue">
+            <a href="https://t.me/funkocommunity" target="_blank" class="px-8 py-3 rounded-full bg-funko-primary-accent text-funko-dark-bg text-lg font-bold neon-button shadow-neon-blue">
                 Приєднатися Зараз
             </a>
         </div>
@@ -218,7 +271,7 @@
     <!-- 6. Футер (Footer) --><footer class="bg-funko-dark-bg text-funko-text-mid py-8 border-t border-funko-primary-accent/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="space-x-6 text-2xl mb-4">
-                <!-- Посилання на Telegram --><a href="t.me/funkocommunity" target="_blank" class="hover:text-funko-primary-accent transition duration-300">🔗 Telegram</a>
+                <!-- Посилання на Telegram --><a href="https://t.me/funkocommunity" target="_blank" class="hover:text-funko-primary-accent transition duration-300">🔗 Telegram</a>
             </div>
             <p class="text-sm text-gray-600">© 2025 Funko Community. Усі права захищено. Спільнота колекціонерів Funko.</p>
         </div>
